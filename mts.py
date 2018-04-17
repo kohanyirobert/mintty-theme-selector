@@ -7,8 +7,8 @@ class NoMatchingThemeFoundException(Exception):
     pass
 
 
-THEME_DIR = os.path.expanduser('~/.mintty/themes')
-THEMES = glob.glob(os.path.join(THEME_DIR, '*.minttyrc'))
+THEMES_DIR = os.path.expanduser('~/.mintty/themes')
+THEME_PATHS = glob.glob(os.path.join(THEMES_DIR, '*.minttyrc'))
 
 ESCAPE_BEGIN = '\033]'
 ESCAPE_END = '\a'
@@ -36,6 +36,11 @@ COLORS = dict(
 )
 
 
+def get_name(theme_path):
+    (theme_name, _) = os.path.splitext(os.path.basename(theme_path))
+    return theme_name
+
+
 def set_color(color_name, value):
     print('{begin}{color_name}{value}{end}'.format(
         begin=ESCAPE_BEGIN,
@@ -44,12 +49,16 @@ def set_color(color_name, value):
         end=ESCAPE_END), end='')
 
 
-def select_theme(query):
-    pattern = re.compile(query)
-    for theme in THEMES:
-        (name, _) = os.path.splitext(os.path.basename(theme))
-        if pattern.search(name):
-            with open(theme) as theme_file:
+def find_themes():
+    return [get_name(tp) for tp in THEME_PATHS]
+
+
+def select_theme(pattern):
+    regex = re.compile(pattern)
+    for theme_path in THEME_PATHS:
+        theme_name = get_name(theme_path)
+        if regex.search(theme_name):
+            with open(theme_path) as theme_file:
                 for line in theme_file:
                     stripped_line = line.strip()
                     parts = stripped_line.split('=')

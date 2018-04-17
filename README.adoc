@@ -1,7 +1,10 @@
 = Mintty Theme Selector
 
-Python script to change `mintty` color scheme from the command line
+Python script to change between `mintty` themes from the command line
 
 * https://github.com/mintty/mintty/wiki/Tips[Save themes under `~/.mintty/themes`]
 * Install the script -- `pip install .`
-* Select a theme -- `mts my-theme` where `my-theme` is a regex which will be matched against theme filenames without extension, so `mts my-theme$` and similar works.
+* List themes -- `mts`
+* Select a theme -- `mts my-theme`
+
+*Important*: `my-theme` is a regex which will be matched against theme filenames without extension, so `mts my-theme$` and similar works.
