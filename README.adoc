@@ -2,6 +2,6 @@
 
 Python script to change `mintty` color scheme from the command line
 
-* Install the script with `./install.sh` -- it'll try to create `~/bin` and symlink `mts.py` to `~/bin/mts`.
-* Save themes under `~/.mintty/themes` https://github.com/mintty/mintty/wiki/Tips[according to the documentation].
-* Use `mts my-theme` to apply it -- the program tries to match the name of the theme file without the extension with a regex so `mts my-theme$` and similar will work.
+* https://github.com/mintty/mintty/wiki/Tips[Save themes under `~/.mintty/themes`]
+* Install the script -- `pip install .`
+* Select a theme -- `mts my-theme` where `my-theme` is a regex which will be matched against theme filenames without extension, so `mts my-theme$` and similar works.
