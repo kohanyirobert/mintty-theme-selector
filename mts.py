@@ -1,8 +1,6 @@
-#!/usr/bin/env python
 import glob
 import os
 import re
-import sys
 
 
 class NoMatchingThemeFoundException(Exception):
@@ -60,20 +58,3 @@ def select_theme(query):
                     set_color(color_name, value)
                 return
     raise NoMatchingThemeFoundException()
-
-
-def main():
-    if len(sys.argv) != 1:
-        try:
-            select_theme(sys.argv[1])
-            exit(0)
-        except NoMatchingThemeFoundException:
-            sys.stderr.write('No matching theme found\n')
-            exit(2)
-    else:
-        sys.stderr.write('Must specify one argument\n')
-        exit(1)
-
-
-if __name__ == '__main__':
-    main()
