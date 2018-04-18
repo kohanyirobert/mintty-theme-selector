@@ -4,7 +4,7 @@ Mintty Theme Selector
 Python script to change between `mintty` themes from the command line
 
 * [Save your themes][1] &mdash; `~/.mintty/themes`
-* Install the script &mdash; `pip install .`
+* Install the script &mdash; `pip install mintty-theme-selector`
 * List themes &mdash; `mts`
 * Select a theme &mdash; `mts my-theme`
 
