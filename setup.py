@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='mintty-theme-selector',
-    version='1.0.1',
+    version='1.0.2',
     description='Command-line theme selector for mintty',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -14,7 +14,7 @@ setup(
     author_email='kohanyi.robert@gmail.com',
     license='WTFPL',
     keywords='mintty theme command-line',
-    packages=find_packages(),
+    packages=['.'],
     python_requires='>=3',
     entry_points={
         'console_scripts': [
